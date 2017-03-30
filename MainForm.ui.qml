@@ -67,31 +67,66 @@ ScrollView {
             source: "PERCTEXT.TTF"
         }
 
-        Column {
-            x: 43
-            y: 209
-            width: 928
-            height: 149
-            spacing: 20
+        GridView {
+            x: 125
+            y: 203
+            width: 1352
+            height: 309
+            boundsBehavior: Flickable.StopAtBounds
+            cacheBuffer: 400
+            snapMode: GridView.NoSnap
+            keyNavigationWraps: true
+            cellHeight: 100
+            cellWidth: 450
+            layoutDirection: Qt.LeftToRight
+            flow: GridView.FlowTopToBottom
+            contentWidth: 34
 
-            Repeater {
-                model: ListModel {
-                ListElement {label: "Name"; placeholder: "Char name"}
-                ListElement {label: "Player"; placeholder: "Player name"}
-                ListElement {label: "Chronicle"; placeholder: "Chronicle"}
-
+            model: ListModel {
+                ListElement {
+                    label: "Name"
+                    placeholder: "Char name"
                 }
-
-               // delegate: PlayerStatsDelegate
-                delegate: Vampchardetails {
-                leftmargin: 10
-                    labelText: label + ":"
-                    textfieldplaceholderText: placeholder
+                ListElement {
+                    label: "Player"
+                    placeholder: "Player name"
+                }
+                ListElement {
+                    label: "Chronicle"
+                    placeholder: "Chronicle"
+                }
+                ListElement {
+                    label: "Nature"
+                    placeholder: "Nature"
+                }
+                ListElement {
+                    label: "Demeanor"
+                    placeholder: "Demeanor"
+                }
+                ListElement {
+                    label: "Concept"
+                    placeholder: "Concept"
+                }
+                ListElement {
+                    label: "Clan"
+                    placeholder: "Clan"
+                }
+                ListElement {
+                    label: "Generation"
+                    placeholder: "Generation"
+                }
+                ListElement {
+                    label: "Sire"
+                    placeholder: "Sire"
                 }
             }
+
+            // delegate: PlayerStatsDelegate
+            delegate: Vampchardetails {
+                leftmargin: 10
+                labelText: label + ":"
+                textfieldplaceholderText: placeholder
+            }
         }
-
-
-
     }
 }
